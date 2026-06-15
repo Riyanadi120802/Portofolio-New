@@ -1,12 +1,8 @@
-function doGet() {
-  return HtmlService.createTemplateFromFile('Index')
-    .evaluate()
-    .setTitle('Portofolio | Riyan Adi Saputro')
-    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)
-    .addMetaTag('viewport', 'width=device-width, initial-scale=1');
-}
+function doPost(e) {
+  var data = JSON.parse(e.postData.contents);
+  var sheet = SpreadsheetApp.openById("10BHL0HnGezfdeABsa-4NjN_sF3s_5GVo22Q2Nsv-Cj0").getActiveSheet();
+  sheet.appendRow([new Date(), data.nama, data.email, data.pesan]);
 
-// Fungsi untuk menyisipkan nilai islami sebagai bagian dari prinsip kerja (sesuai preferensi)
-function getIslamicQuote() {
-  return "“Bekerja bukan hanya mencari nafkah, melainkan sarana beribadah dan menjemput berkah dengan profesionalisme (Ihsan).”";
+  return ContentService.createTextOutput(JSON.stringify({status: "success"}))
+                       .setMimeType(ContentService.MimeType.JSON);
 }
