@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio | Riyan Adi Saputro</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fdfbf7; /* Latar belakang krem hangat */
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    /* --- ELEMEN 3D MURNI CSS (Terinspirasi dari image_844401.jpg) --- */
+    
+    /* Efek Bola 3D Teori Pencahayaan Radial */
+    .sphere-3d {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffdf9e 0%, #f3b333 40%, #b47a0b 85%, #5a3a00 100%);
+      box-shadow: inset -4px -4px 12px rgba(0,0,0,0.4), 
+                  10px 20px 25px rgba(90,58,0,0.25);
+      filter: blur(0.3px);
+    }
+    
+    .sphere-3d-sm {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffdf9e 0%, #f3b333 50%, #a06c06 90%);
+      box-shadow: inset -2px -2px 6px rgba(0,0,0,0.4), 
+                  5px 10px 15px rgba(90,58,0,0.2);
+    }
+
+    /* Animasi Mengambang Alami (Floating) */
+    @keyframes floatSlow {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    @keyframes floatFast {
+      0% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-8px) translateX(5px); }
+      100% { transform: translateY(0px) translateX(0px); }
+    }
+    @keyframes float3D {
+      0% { transform: translateY(0px) rotate(0deg); box-shadow: 0 10px 25px -5px rgba(4,51,38,0.1); }
+      50% { transform: translateY(-10px) rotate(0.5deg); box-shadow: 0 25px 30px -10px rgba(4,51,38,0.2); }
+      100% { transform: translateY(0px) rotate(0deg); box-shadow: 0 10px 25px -5px rgba(4,51,38,0.1); }
+    }
+
+    .animate-float-slow { animation: floatSlow 7s ease-in-out infinite; }
+    .animate-float-fast { animation: floatFast 4s ease-in-out infinite; }
+    .animate-float-3d { animation: float3D 6s ease-in-out infinite; }
+  </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-emerald-800 selection:text-white">
+
+  <!-- ================= ELEMEN DEKORASI 3D BEBAS MELAYANG (BACKGROUND) ================= -->
+  <!-- Bola 3D Kiri Atas -->
+  <div class="absolute top-20 left-[4%] z-0 sphere-3d animate-float-slow opacity-85 hidden lg:block"></div>
+  <!-- Bola 3D Kecil dekat profil -->
+  <div class="absolute top-[450px] left-[38%] z-10 sphere-3d-sm animate-float-fast hidden lg:block"></div>
+  <!-- Bola 3D Kanan Bawah bagian Skill -->
+  <div class="absolute top-[1150px] right-[5%] z-0 sphere-3d animate-float-slow opacity-90 hidden lg:block" style="width: 65px; height: 65px;"></div>
+  
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-[#fdfbf7]/90 backdrop-blur-md border-b border-orange-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex-shrink-0 font-extrabold text-xl tracking-wider text-[#043326]">
+          RIYAN<span class="text-[#f3b333]">.</span>ADI
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8 font-semibold text-sm text-emerald-950/80">
+            <a href="#home" class="hover:text-[#f3b333] transition-colors py-2">Beranda</a>
+            <a href="#skills" class="hover:text-[#f3b333] transition-colors py-2">Keahlian</a>
+            <a href="#experience" class="hover:text-[#f3b333] transition-colors py-2">Pengalaman</a>
+            <a href="#education" class="hover:text-[#f3b333] transition-colors py-2">Pendidikan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="py-12 md:py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- SVG Elemen Tabung Meliuk 3D Oranye Kiri Atas Hero -->
+    <div class="absolute -top-10 left-[-20px] z-0 opacity-20 lg:opacity-100 pointer-events-none hidden sm:block animate-float-fast">
+      <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(8px 16px 12px rgba(180,122,11,0.3));">
+        <path d="M10 20 C 30 0, 50 40, 70 20 C 90 0, 100 30, 80 60" stroke="url(#orange3DGradient)" stroke-width="14" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="orange3DGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffdf9e" />
+            <stop offset="50%" stop-color="#f3b333" />
+            <stop offset="100%" stop-color="#946303" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+      
+      <!-- SISI KIRI: Pesan Utama & Deskripsi -->
+      <div class="md:col-span-7 text-center md:text-left order-2 md:order-1 space-y-6 relative">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-[#043326]">
+          <span class="material-icons text-xs" style="font-size: 14px;">computer</span> Informatics Graduate & SME Leader
+        </div>
+        
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-[#043326] tracking-tight leading-tight">
+          Mari Bekerja<br class="hidden sm:inline"> 
+          <span class="text-[#f3b333]">Bersama. ✨</span>
+        </h1>
+        
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
+          Lulusan Informatika dari UAD dengan keahlian mendalam di bidang analisis data, sistem cerdas, dan desain grafis. Berpengalaman memimpin tim operasional dalam manajemen data onboarding serta optimasi bisnis.
+        </p>
+
+        <!-- Nilai Islami Tersemat Indah -->
+        <div class="p-4 bg-emerald-50/60 border-l-4 border-emerald-700 rounded-r-2xl text-left max-w-lg">
+          <p class="text-xs font-bold uppercase tracking-wider text-emerald-800 mb-1">🌿 Prinsip Kerja</p>
+          <p class="text-sm italic text-emerald-950 font-medium">
+            "Maka apabila kamu telah selesai (dari sesuatu urusan), kerjakanlah dengan sungguh-sungguh (urusan) yang lain." — QS. Al-Insyirah: 7
+          </p>
+        </div>
+
+        <!-- Tombol Kontak & Sosial Media -->
+        <div class="flex flex-wrap justify-center md:justify-start items-center gap-4 pt-2">
+          <a href="mailto:Riyanadi083@gmail.com" class="inline-flex items-center gap-2 bg-[#043326] hover:bg-[#0c4e3c] text-white px-6 py-3.5 rounded-xl shadow-md font-bold text-sm transition">
+            Hubungi Saya <span class="material-icons text-[#f3b333]" style="font-size: 18px;">north_east</span>
+          </a>
+          <a href="https://linkedin.com/in/riyan-adi-1282ras/" target="_blank" aria-label="LinkedIn" class="p-3 bg-white hover:bg-slate-50 border border-slate-200 text-[#043326] rounded-xl shadow-xs transition flex items-center justify-center">
+            <span class="material-icons" style="font-size: 22px;">work</span>
+          </a>
+          <a href="https://github.com/Riyanadi120802" target="_blank" aria-label="GitHub" class="p-3 bg-white hover:bg-slate-50 border border-slate-200 text-[#043326] rounded-xl shadow-xs transition flex items-center justify-center">
+            <span class="material-icons" style="font-size: 22px;">code</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- SISI KANAN: Kartu Foto Profil Vertikal Estetik -->
+      <div class="md:col-span-5 flex justify-center order-1 md:order-2 relative">
+        
+        <!-- SVG Spiral 3D Besar di Kanan Luar Profil (Mirip persis struktur kanan image_844401.jpg) -->
+        <div class="absolute -right-16 top-1/4 z-20 pointer-events-none hidden lg:block animate-float-slow">
+          <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(12px 24px 16px rgba(180,122,11,0.35));">
+            <path d="M10 50 Q 25 15, 50 50 T 90 50 Q 75 95, 40 70" stroke="url(#spiralGradient)" stroke-width="12" stroke-linecap="round" fill="none"/>
+            <defs>
+              <linearGradient id="spiralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffd685" />
+                <stop offset="40%" stop-color="#f3b333" />
+                <stop offset="100%" stop-color="#7c5302" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="bg-[#043326] p-4 pb-6 rounded-[2.5rem] w-full max-w-[340px] shadow-2xl relative z-10 animate-float-3d">
+          <div class="relative aspect-square w-full rounded-[2rem] overflow-hidden bg-[#f3b333]/90 mb-4 flex items-end justify-center">
+            <div class="absolute w-72 h-72 rounded-full border-4 border-dashed border-white/20 -bottom-12 -right-12"></div>
+            <img 
+              src="https://lh3.googleusercontent.com/u/0/d/1TLnXlL4Qp-5ZP01UypbIK9RIxdbQDnUA" 
+              alt="Riyan Adi Saputro" 
+              class="w-full h-full object-cover object-top relative z-10"
+              onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400';" 
+            />
+          </div>
+
+          <div class="px-2 text-center md:text-left">
+            <h3 class="text-white font-bold text-xl tracking-wide">Riyan Adi Saputro</h3>
+            <p class="text-[#f3b333] text-xs font-medium tracking-wider">S1 Informatika & Operation Specialist</p>
+          </div>
+
+          <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-white px-4 py-1.5 rounded-full shadow-md text-[11px] font-bold text-emerald-950 flex items-center gap-1.5 whitespace-nowrap border border-emerald-100">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            🤝 Siap Berkolaborasi
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HIGHLIGHT PRESTASI -->
+  <section class="my-12 bg-[#043326] text-white mx-4 max-w-6xl md:mx-auto rounded-[2rem] p-8 md:p-12 shadow-xl relative overflow-hidden z-10">
+    <div class="absolute top-0 right-0 w-32 h-32 bg-[#f3b333]/10 rounded-full blur-2xl"></div>
+    <div class="flex flex-col md:flex-row items-center gap-6 justify-between relative z-10">
+      <div class="flex items-center gap-4 text-center md:text-left flex-col md:flex-row">
+        <div class="p-4 bg-emerald-900/50 rounded-2xl text-[#f3b333] border border-emerald-800 flex items-center justify-center">
+          <span class="material-icons" style="font-size: 32px;">emoji_events</span>
+        </div>
+        <div>
+          <span class="text-[#f3b333] text-xs font-bold tracking-widest uppercase block mb-1">🏆 Prestasi Utama Showcase</span>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight">2nd Winner of MSIB Independent Study Final Project</h2>
+          <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-2xl font-light">
+            Kategori 'Artificial Intelligence Track Startup Campus Batch 3'. Mengembangkan arsitektur Deep Learning untuk klasifikasi cerdas berbasis karakteristik elemen visual fashion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIGA KOLOM LAYOUT KEAHLIAN -->
+  <section id="skills" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl font-extrabold text-[#043326]">Fokus Kompetensi 🛠️</h2>
+      <p class="text-slate-500 text-sm mt-2">Daftar keahlian terstruktur yang siap diterapkan secara profesional di industri.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      
+      <!-- Kartu 1: Data Analytics -->
+      <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-lg hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+        <div>
+          <div class="p-3 bg-emerald-50 text-[#043326] w-max rounded-2xl mb-6 flex items-center justify-center">
+            <span class="material-icons">analytics</span>
+          </div>
+          <h3 class="font-extrabold text-lg text-[#043326] mb-3">Data Analytics & AI</h3>
+          <p class="text-xs text-slate-500 mb-4">Pengolahan data cerdas menggunakan framework mutakhir:</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5 text-xs font-medium">
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Python</span>
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Machine Learning</span>
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Deep Learning</span>
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">SQL</span>
+        </div>
+      </div>
+
+      <!-- Kartu 2: Web Development -->
+      <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-lg hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+        <div>
+          <div class="p-3 bg-emerald-50 text-[#043326] w-max rounded-2xl mb-6 flex items-center justify-center">
+            <span class="material-icons">integration_instructions</span>
+          </div>
+          <h3 class="font-extrabold text-lg text-[#043326] mb-3">Web Development</h3>
+          <p class="text-xs text-slate-500 mb-4">Pembangunan platform digital interaktif skala penuh:</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5 text-xs font-medium">
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Laravel 10</span>
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">PHP & MySQL</span>
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">WordPress</span>
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Tailwind CSS</span>
+        </div>
+      </div>
+
+      <!-- Kartu 3: Operations & Leadership (Paling Populer) -->
+      <div class="bg-white p-8 rounded-3xl border-2 border-[#f3b333] shadow-md relative hover:-translate-y-1 transition duration-300 flex flex-col justify-between pt-10">
+        <div class="absolute -top-3 left-6 bg-[#f3b333] text-[#043326] font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-md shadow-xs">
+          Paling Populer
+        </div>
+        <div>
+          <div class="p-3 bg-amber-50 text-[#f3b333] w-max rounded-2xl mb-6 flex items-center justify-center">
+            <span class="material-icons">groups</span>
+          </div>
+          <h3 class="font-extrabold text-lg text-[#043326] mb-3">Ops & Management</h3>
+          <p class="text-xs text-slate-500 mb-4">Manajemen tim operasional dan integrasi sistem korporat:</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5 text-xs font-medium">
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">SME Leadership</span>
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">ERP System</span>
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Google Sheets</span>
+          <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Adobe Illustrator</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PENGALAMAN PROFESIONAL -->
+  <section id="experience" class="py-16 bg-[#043326]/5 border-t border-b border-orange-100 relative z-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold text-[#043326]">Pengalaman Kerja 💼</h2>
+        <div class="w-12 h-1 bg-[#f3b333] mx-auto mt-2 rounded-full"></div>
+      </div>
+
+      <!-- Timeline Pengalaman Kerja -->
+      <div class="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:w-0.5 before:bg-emerald-900/10">
+        
+        <!-- Kerja 1 -->
+        <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+          <div class="absolute left-4 sm:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-[#f3b333] border-4 border-white shadow-xs z-10"></div>
+          <div class="w-full sm:w-1/2 pl-12 sm:pl-0 sm:pr-8 text-left sm:text-right">
+            <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-md">1 Tahun Terakhir</span>
+            <h3 class="text-lg font-bold text-[#043326] mt-1">Subject Matter Expert Leader</h3>
+            <p class="text-sm font-semibold text-slate-600">Grab Onboarding Food & Mart</p>
+          </div>
+          <div class="w-full sm:w-1/2 pl-12 sm:pl-8 mt-2 sm:mt-0">
+            <p class="text-xs text-slate-600 leading-relaxed max-w-md">
+              Memimpin koordinasi tim dalam validasi dokumen merchant, mengoptimalkan proses migrasi data, serta menangani eskalasi teknis guna mempercepat efisiensi onboarding merchant berskala prioritas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Kerja 2 -->
+        <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+          <div class="absolute left-4 sm:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-700 border-4 border-white shadow-xs z-10"></div>
+          <div class="w-full sm:w-1/2 pl-12 sm:left-1/2 sm:pl-8 order-1 sm:order-2">
+            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">Sebelumnya</span>
+            <h3 class="text-lg font-bold text-[#043326] mt-1">Operation Specialist</h3>
+            <p class="text-sm font-semibold text-slate-600">Grab Support Indonesia</p>
+          </div>
+          <div class="w-full sm:w-1/2 pl-12 sm:pr-8 text-left sm:text-right order-2 sm:order-1 mt-2 sm:mt-0">
+            <p class="text-xs text-slate-600 leading-relaxed max-w-md sm:ml-auto">
+              Bertanggung jawab atas audit operasional harian, menjaga kualitas output layanan dukungan pelanggan, dan menyusun laporan berbasis spreadsheet guna mengidentifikasi hambatan performa bisnis.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PENDIDIKAN -->
+  <section id="education" class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-extrabold text-[#043326]">Riwayat Pendidikan 🎓</h2>
+      <div class="w-12 h-1 bg-[#f3b333] mx-auto mt-2 rounded-full"></div>
+    </div>
+
+    <div class="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-xs flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div class="flex items-start gap-4">
+        <div class="p-3 bg-amber-50 text-[#f3b333] rounded-2xl flex items-center justify-center">
+          <span class="material-icons" style="font-size: 28px;">school</span>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-[#043326]">Universitas Ahmad Dahlan Yogyakarta</h3>
+          <p class="text-sm font-medium text-slate-600">S1 Informatika (Sarjana Komputer)</p>
+          <p class="text-xs text-slate-400 mt-1">Fokus Studi: Analisis Data, Machine Learning & Sistem Informasi Cerdas</p>
+        </div>
+      </div>
+      <div class="text-left md:text-right">
+        <span class="inline-block bg-emerald-50 text-emerald-900 font-bold text-xs px-3 py-1 rounded-full border border-emerald-200">
+          Lulus S1 Informatika
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#043326] text-white/90 border-t border-emerald-900/60 py-8 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="text-sm font-bold tracking-wide">RIYAN ADI SAPUTRO</p>
+        <p class="text-xs text-white/50 mt-0.5">&copy; 2026 Dibuat dengan penuh cinte. Dikembangkan secara profesional.</p>
+      </div>
+      <div class="flex gap-4 text-xs text-white/70">
+        <a href="#home" class="hover:text-[#f3b333] transition-colors">Beranda</a>
+        <a href="#skills" class="hover:text-[#f3b333] transition-colors">Keahlian</a>
+        <a href="#experience" class="hover:text-[#f3b333] transition-colors">Pengalaman</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
